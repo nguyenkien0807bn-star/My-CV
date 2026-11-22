@@ -10,28 +10,33 @@
    1. DESIGN TOKENS – biến hệ thống thị giác (màu, chữ, khoảng cách, bo góc)
    Dùng custom properties để thay đổi tập trung, nhất quán toàn trang.
    ========================================================================== */
+
 :root {
-  /* --- Bảng màu --- */
-  --color-primary: #2563eb;      /* xanh thương hiệu */
-  --color-primary-dark: #1d4ed8;
-  --color-accent: #7c3aed;       /* tím nhấn */
-  --color-text: #1e293b;         /* chữ chính */
-  --color-text-soft: #64748b;    /* chữ phụ */
-  --color-bg: #ffffff;           /* nền trang */
-  --color-surface: #f8fafc;      /* nền vùng nhấn */
-  --color-border: #e2e8f0;       /* viền */
-  --color-chip: #eff6ff;         /* nền chip kỹ năng */
+  /* --- Bảng màu Portfolio mới --- */
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-accent: #6366F1;
+
+  --color-text: #1E293B;
+  --color-text-soft: #64748B;
+
+  --color-bg: #F1F5F9;
+  --color-surface: #E8EFF8;
+  --color-border: #DCE4EF;
+  --color-chip: #DBEAFE;
 
   /* --- Typography --- */
-  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --fs-sm: 0.875rem;   /* 14px */
-  --fs-base: 1rem;     /* 16px */
-  --fs-lg: 1.125rem;   /* 18px */
-  --fs-h2: 1.5rem;     /* 24px */
-  --fs-h1: 2rem;       /* 32px (sẽ tăng ở desktop) */
+  --font-base: system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-h2: 1.5rem;
+  --fs-h1: 2rem;
   --lh-base: 1.6;
 
-  /* --- Khoảng cách (spacing scale) --- */
+  /* --- Khoảng cách --- */
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
@@ -42,8 +47,10 @@
   --container-max: 1200px;
   --radius: 12px;
   --radius-sm: 8px;
-  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08),
+            0 8px 24px rgba(15, 23, 42, 0.06);
 }
+
 
 /* ==========================================================================
    2. CHUẨN HÓA BOX MODEL + RESET CƠ BẢN
@@ -452,4 +459,92 @@ ul {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+/* ANIMATION GIỚI THIỆU PORTFOLIO */
+
+/* Lời chào */
+.greeting-animation {
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+}
+
+/* Tên xuất hiện */
+.name-animation {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeUp 1s ease 1s forwards;
+}
+
+/* Chức danh xuất hiện */
+.role-animation {
+    opacity: 0;
+    animation: fadeUp 1s ease 1.7s forwards;
+}
+
+/* Hiệu ứng chuyển động từ dưới lên */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* FORM LIÊN HỆ */
+.contact-form {
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 18px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Nhập đúng */
+.contact-form .is-valid {
+  border-color: #16a34a !important;
+}
+
+/* Nhập sai */
+.contact-form .is-invalid {
+  border-color: #dc2626 !important;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form .submit-btn {
+  padding: 12px 24px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.contact-form .submit-btn:hover {
+  background: #1d4ed8;
 }
